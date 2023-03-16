@@ -11,4 +11,22 @@ package control;
  */
 public class DptSales {
     
+    public void crearPlane() {
+    
+    }
+    
+    public void suspenderPlanes() {
+    
+    }
+    
+    public void modificarPlanes() {
+    
+    }
+    
+    public void venderAbono() {
+    
+    }
+    
+    
+    
 }

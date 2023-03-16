@@ -30,10 +30,13 @@ public class Animals_Control extends javax.swing.JFrame {
         buttonEditAnimals = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         buttonBack = new javax.swing.JButton();
+        buttonEditDomestic = new javax.swing.JButton();
+        buttonEditSavages = new javax.swing.JButton();
+        buttonEditMinors = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonEditAnimals.setText("Editar Animales");
+        buttonEditAnimals.setText("Ver Animales");
         buttonEditAnimals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonEditAnimalsActionPerformed(evt);
@@ -50,6 +53,27 @@ public class Animals_Control extends javax.swing.JFrame {
             }
         });
 
+        buttonEditDomestic.setText("Editar Domesticos");
+        buttonEditDomestic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditDomesticActionPerformed(evt);
+            }
+        });
+
+        buttonEditSavages.setText("Editar Salvajes");
+        buttonEditSavages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditSavagesActionPerformed(evt);
+            }
+        });
+
+        buttonEditMinors.setText("Editar Menores");
+        buttonEditMinors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEditMinorsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,11 +85,15 @@ public class Animals_Control extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(165, 165, 165))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(buttonEditAnimals, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonEditAnimals, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(buttonEditDomestic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonEditSavages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonEditMinors, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(179, 179, 179))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(buttonBack)
-                        .addGap(206, 206, 206))))
+                        .addGap(202, 202, 202))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,9 +102,15 @@ public class Animals_Control extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(buttonEditAnimals)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonEditDomestic)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonEditSavages)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonEditMinors)
+                .addGap(18, 18, 18)
                 .addComponent(buttonBack)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
@@ -84,8 +118,8 @@ public class Animals_Control extends javax.swing.JFrame {
 
     private void buttonEditAnimalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditAnimalsActionPerformed
         // TODO add your handling code here:
-       Edit_Animals edit_Animals =  new Edit_Animals();
-       edit_Animals.setVisible(true);
+       View_Animals view_Animals =  new View_Animals();
+       view_Animals.setVisible(true);
        dispose();
     }//GEN-LAST:event_buttonEditAnimalsActionPerformed
 
@@ -95,6 +129,27 @@ public class Animals_Control extends javax.swing.JFrame {
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void buttonEditDomesticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditDomesticActionPerformed
+        // TODO add your handling code here:
+        Edit_DomesticAnimals edit_DomesticAnimals =  new Edit_DomesticAnimals();
+        edit_DomesticAnimals.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonEditDomesticActionPerformed
+
+    private void buttonEditSavagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSavagesActionPerformed
+        // TODO add your handling code here:
+        Edit_SavageAnimals edit_SavageAnimals = new Edit_SavageAnimals();
+        edit_SavageAnimals.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonEditSavagesActionPerformed
+
+    private void buttonEditMinorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditMinorsActionPerformed
+        // TODO add your handling code here:
+        Edit_MinorAnimals edit_MinorAnimals = new Edit_MinorAnimals();
+        edit_MinorAnimals.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_buttonEditMinorsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +189,9 @@ public class Animals_Control extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonEditAnimals;
+    private javax.swing.JButton buttonEditDomestic;
+    private javax.swing.JButton buttonEditMinors;
+    private javax.swing.JButton buttonEditSavages;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

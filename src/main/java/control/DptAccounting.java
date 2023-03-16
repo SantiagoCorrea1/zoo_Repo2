@@ -11,4 +11,7 @@ package control;
  */
 public class DptAccounting {
     
+    public void llevarCuentas() {
+    
+    }
 }

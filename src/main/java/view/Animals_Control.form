@@ -31,12 +31,17 @@
                       <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="buttonEditAnimals" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="buttonEditAnimals" pref="125" max="32767" attributes="0"/>
+                          <Component id="buttonEditDomestic" alignment="0" max="32767" attributes="0"/>
+                          <Component id="buttonEditSavages" alignment="0" max="32767" attributes="0"/>
+                          <Component id="buttonEditMinors" max="32767" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="buttonBack" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -49,9 +54,15 @@
               <Component id="jLabel1" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               <Component id="buttonEditAnimals" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="buttonEditDomestic" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="buttonEditSavages" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="buttonEditMinors" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="buttonBack" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="173" max="32767" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -59,7 +70,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonEditAnimals">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Editar Animales"/>
+        <Property name="text" type="java.lang.String" value="Ver Animales"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditAnimalsActionPerformed"/>
@@ -79,6 +90,30 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonEditDomestic">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar Domesticos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditDomesticActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonEditSavages">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar Salvajes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditSavagesActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonEditMinors">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Editar Menores"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditMinorsActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

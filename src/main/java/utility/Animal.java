@@ -13,15 +13,18 @@ public class Animal {
     private int code;
     private String name;
     private float weigth;
+    private String type;
 
     public Animal() {
     }
 
-    public Animal(int code, String name, float weigth) {
+    public Animal(int code, String name, float weigth, String type) {
         this.code = code;
         this.name = name;
         this.weigth = weigth;
+        this.type = type;
     }
+
 
     /**
      * @return the code
@@ -65,15 +68,20 @@ public class Animal {
         this.weigth = weigth;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Animal{code=").append(code);
-        sb.append(", name=").append(name);
-        sb.append(", weigth=").append(weigth);
-        sb.append('}');
-        return sb.toString();
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
     }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
     
     
     
