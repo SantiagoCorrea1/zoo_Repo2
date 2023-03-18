@@ -6,6 +6,7 @@
 package view;
 import utility.MinorAnimal;
 import control.DptLogistic;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author SANTIAGO
@@ -144,6 +145,11 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
         jLabel2.setText("Nombre");
 
         buttonDelete.setText("Eliminar");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Tipo");
 
@@ -377,6 +383,7 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
         MinorAnimal minorAnimal =  new MinorAnimal(boxCodeEdit.getText(), "", boxEdituse.getText(),
                 boxCodeEdit.getText(), boxEditName.getText(), boxEditWeigth.getText(), ""); //vacío el tipo porque eso no se va a editar
         dptLogistic.editMinorAnimals(code, minorAnimal);
+
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
@@ -402,6 +409,11 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
     private void boxCodeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCodeEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxCodeEditActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // TODO add your handling code here:
+        dptLogistic.deleteAnimal(boxCodeDelete.getText(), "menor");
+    }//GEN-LAST:event_buttonDeleteActionPerformed
 
     /**
      * @param args the command line arguments

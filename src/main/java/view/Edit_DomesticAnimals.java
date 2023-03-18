@@ -6,6 +6,7 @@
 package view;
 import utility.DomesticAnimal;
 import control.DptLogistic;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author SANTIAGO
@@ -138,6 +139,11 @@ public class Edit_DomesticAnimals extends javax.swing.JFrame {
         jLabel2.setText("Nombre");
 
         buttonDelete.setText("Eliminar");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Tipo");
 
@@ -338,7 +344,6 @@ public class Edit_DomesticAnimals extends javax.swing.JFrame {
         String code =  boxCodeEdit.getText();
         DomesticAnimal domesticAnimal =  new DomesticAnimal(boxSpecies.getText(), boxEditKidness.getText(), "", boxEditName.getText(), "", ""); //vacío el tipo porque eso no se va a editar
         dptLogistic.editDomesticAnimals(code, domesticAnimal);
-        System.out.println(dptLogistic.getArraysControl().getDomesticAnimals().get(0).getName());
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
@@ -346,7 +351,6 @@ public class Edit_DomesticAnimals extends javax.swing.JFrame {
         DomesticAnimal domesticAnimal = new DomesticAnimal(boxSpecies.getText(), boxKidness.getText(), boxCode.getText(),
                 boxName.getText(), boxWeigth.getText(), boxType.getText());
         dptLogistic.addDomesticAnimals(domesticAnimal);
-        System.out.println(dptLogistic.getArraysControl().getDomesticAnimals().get(0).getName());
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void boxCodeDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCodeDeleteActionPerformed
@@ -356,6 +360,11 @@ public class Edit_DomesticAnimals extends javax.swing.JFrame {
     private void boxCodeEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCodeEditActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxCodeEditActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // TODO add your handling code here:
+        dptLogistic.deleteAnimal(boxCodeDelete.getText(), "domestico");
+    }//GEN-LAST:event_buttonDeleteActionPerformed
 
     /**
      * @param args the command line arguments

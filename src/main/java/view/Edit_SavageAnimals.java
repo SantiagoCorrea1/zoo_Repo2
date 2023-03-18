@@ -6,6 +6,7 @@
 package view;
 import utility.SavageAnimal;
 import control.DptLogistic;
+import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author SANTIAGO
@@ -120,6 +121,11 @@ public class Edit_SavageAnimals extends javax.swing.JFrame {
         jLabel2.setText("Nombre");
 
         buttonDelete.setText("Eliminar");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Tipo");
 
@@ -378,6 +384,11 @@ public class Edit_SavageAnimals extends javax.swing.JFrame {
     private void boxEditWeigthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxEditWeigthActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxEditWeigthActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // TODO add your handling code here:
+        dptLogistic.deleteAnimal(boxCodeDelete.getText(), "salvaje");
+    }//GEN-LAST:event_buttonDeleteActionPerformed
 
     /**
      * @param args the command line arguments

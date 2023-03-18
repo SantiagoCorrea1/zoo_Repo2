@@ -11,7 +11,6 @@ import utility.SavageAnimal;
 import utility.Animal;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-
 /**
  *
  * @author SANTIAGO
@@ -19,6 +18,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class DptLogistic {
     
     ArraysControl arraysControl =  new ArraysControl();
+    VerificationMetodesAnimals verificationMetodesAnimals = new VerificationMetodesAnimals();
     
     public ArraysControl getArraysControl() {
         return arraysControl;
@@ -33,6 +33,7 @@ public class DptLogistic {
         Animal animalN = new Animal(a.getCode(), a.getName(), a.getWeigth(), a.getType());
         arraysControl.getAnimals().add(0, animalN);
         arraysControl.getMinorAnimals().add(0, a);
+        showMessageDialog(null, "el animal fue agregado correctamente");
     }
     
      //método agregar animales domesticos
@@ -40,6 +41,7 @@ public class DptLogistic {
         Animal animalN = new Animal(a.getCode(), a.getName(), a.getWeigth(), a.getType());
         arraysControl.getAnimals().add(0, animalN);
         arraysControl.getDomesticAnimals().add(0, a);
+        showMessageDialog(null, "el animal fue agregado correctamente");
     }
     
      //método agregar animales salvajes
@@ -47,108 +49,74 @@ public class DptLogistic {
         Animal animalN = new Animal(a.getCode(), a.getName(), a.getWeigth(), a.getType());
         arraysControl.getAnimals().add(0, animalN);
         arraysControl.getSavageAnimals().add(0, a);
-    }
-    
-    //método para verificar si existe el animal menor de ese código
-    public boolean minorExists(String code){
-        for (int i = 0; i <= arraysControl.getMinorAnimals().size(); i++) {
-            if (arraysControl.getMinorAnimals().get(i).getCode().equals(code)) {
-            return true;
-            }
-        }
-        return false;
-    }
-    
-    //si existe el animal menor lo retorna
-    public MinorAnimal returnMinors(String code) {
-        for (int i = 0; i <= arraysControl.getMinorAnimals().size(); i++) {
-            if (arraysControl.getMinorAnimals().get(i).getCode().equals(code)) {
-            return arraysControl.getMinorAnimals().get(i);
-            }
-        }
-        return null;
+        showMessageDialog(null, "el animal fue agregado correctamente");
     }
     
     // al animal menor retornado le setea todo menos el código (el código no se puede cambiar)
     public void editMinorAnimals (String code, MinorAnimal a) {
-        if (minorExists(code)) {
-            MinorAnimal b = returnMinors(code);
+        if (verificationMetodesAnimals.minorExists(code)) {
+            MinorAnimal b = verificationMetodesAnimals.returnMinors(code);
             b.setName(a.getName());
             b.setUse(a.getUse());
             b.setVulgarName(a.getVulgarName());
             b.setWeigth(a.getWeigth());
+            showMessageDialog(null, "el animal fue editado correctamente");
         } else{
             showMessageDialog(null, "no existe al animal con ese código");
                 }
-    }
-    
-    //m´étd para saber si existe el animal dao un código
-    public boolean domesticExists(String code){
-        for (int i = 0; i <= arraysControl.getDomesticAnimals().size(); i++) {
-            if (arraysControl.getDomesticAnimals().get(i).getCode().equals(code)) {
-            return true;
-            }
-        }
-        return false;
-    }
-    
-    //si existe el animal domestico lo retorna
-    public DomesticAnimal returnDomestic(String code) {
-        for (int i = 0; i <= arraysControl.getDomesticAnimals().size(); i++) {
-            if (arraysControl.getDomesticAnimals().get(i).getCode().equals(code)) {
-            return arraysControl.getDomesticAnimals().get(i);
-            }
-        }
-        return null;
     }
     
     // al animal menor retornado le setea todo menos el código (el código no se puede cambiar)
     public void editDomesticAnimals (String code, DomesticAnimal a) {
-        if (domesticExists(code)) {
-            DomesticAnimal b = returnDomestic(code);           
+        if (verificationMetodesAnimals.domesticExists(code)) {
+            DomesticAnimal b = verificationMetodesAnimals.returnDomestic(code);           
             b.setName(a.getName());     
             b.setWeigth(a.getWeigth());
             b.setKindnessLevel(a.getKindnessLevel());
+            showMessageDialog(null, "el animal fue editado correctamente");
         } else{
+            System.out.println("hola");
             showMessageDialog(null, "no existe al animal con ese código");
                 }
     }
     
-   
-  
-    //método para verificar si existe el animal menor de ese código
-    public boolean savageExists(String code){
-        for (int i = 0; i <= arraysControl.getSavageAnimals().size(); i++) {
-            if (arraysControl.getSavageAnimals().get(i).getCode().equals(code)) {
-            return true;
-            }
-        }
-        return false;
-    }
     
-    //si existe el animal menor lo retorna
-    public SavageAnimal returnSavage(String code) {
-        for (int i = 0; i <= arraysControl.getSavageAnimals().size(); i++) {
-            if (arraysControl.getSavageAnimals().get(i).getCode().equals(code)) {
-            return arraysControl.getSavageAnimals().get(i);
-            }
-        }
-        return null;
-    }
-    
-    // al animal menor retornado le setea todo menos el código (el código no se puede cambiar)
+    // al animal salvaje retornado le setea los datos que se pueden cambiar, algunos no tiene sentido permitir cambios
     public void editSavage (String code, SavageAnimal a) {
-        if (minorExists(code)) {
-            SavageAnimal b = returnSavage(code);
+        if (verificationMetodesAnimals.savageExists(code)) {
+            SavageAnimal b = verificationMetodesAnimals.returnSavage(code);
             b.setName(a.getName());
             b.setWeigth(a.getWeigth());
             b.setDangerLevel(a.getDangerLevel());
+            showMessageDialog(null, "el animal fue editado correctamente");
         } else{
             showMessageDialog(null, "no existe al animal con ese código");
                 }
     }
     
-     public void reubicarAnimales() {  //cuando mue
+    //elimina el animal del arreglo tipo y del arreglo general
+    public void deleteAnimal(String code, String type) {  
         
+            if (verificationMetodesAnimals.getPosition(code, type) != -1 && verificationMetodesAnimals.getPositionGeneral(code) != -1) {
+                switch (type) {
+                    case "menor":    
+                        arraysControl.getMinorAnimals().remove(verificationMetodesAnimals.getPosition(code, type));
+                        arraysControl.getAnimals().remove(verificationMetodesAnimals.getPositionGeneral(code));
+                        showMessageDialog(null, "el animal fue eliminado correctamente de la base de datos");
+                break;
+                    case "domestico":
+                        arraysControl.getDomesticAnimals().remove(verificationMetodesAnimals.getPosition(code, type));
+                        arraysControl.getAnimals().remove(verificationMetodesAnimals.getPositionGeneral(code));
+                        showMessageDialog(null, "el animal fue eliminado correctamente de la base de datos");
+                break;
+                    case "salvaje":
+                        arraysControl.getSavageAnimals().remove(verificationMetodesAnimals.getPosition(code, type));
+                        arraysControl.getAnimals().remove(verificationMetodesAnimals.getPositionGeneral(code));
+                        showMessageDialog(null, "el animal fue eliminado correctamente de la base de datos");
+                break;
+                }
+            } else{
+                System.out.println("no se encontró la posición");
+                        }
     }
 }

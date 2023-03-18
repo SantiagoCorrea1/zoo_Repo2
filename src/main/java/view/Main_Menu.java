@@ -20,7 +20,6 @@ public class Main_Menu extends javax.swing.JFrame {
         initComponents();
         this.dptLogistic = dptLogistic;
         setLocationRelativeTo(this);
-        System.out.println(dptLogistic.getArraysControl().getMinorAnimals().get(0).getCode());
     }
 
     Main_Menu() {
