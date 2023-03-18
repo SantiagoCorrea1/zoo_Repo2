@@ -11,17 +11,17 @@ package utility;
  */
 public class DomesticAnimal extends Animal {
     private String specie;
-    private int kindnessLevel;
+    private String kindnessLevel;
 
     public DomesticAnimal() {
     }
 
-    public DomesticAnimal(String specie, int kindnessLevel) {
+    public DomesticAnimal(String specie, String kindnessLevel) {
         this.specie = specie;
         this.kindnessLevel = kindnessLevel;
     }
 
-    public DomesticAnimal(String specie, int kindnessLevel, int code, String name, float weigth, String type) {
+    public DomesticAnimal(String specie, String kindnessLevel, String code, String name, String weigth, String type) {
         super(code, name, weigth, type);
         this.specie = specie;
         this.kindnessLevel = kindnessLevel;
@@ -46,14 +46,14 @@ public class DomesticAnimal extends Animal {
     /**
      * @return the kindnessLevel
      */
-    public int getKindnessLevel() {
+    public String getKindnessLevel() {
         return kindnessLevel;
     }
 
     /**
      * @param kindnessLevel the kindnessLevel to set
      */
-    public void setKindnessLevel(int kindnessLevel) {
+    public void setKindnessLevel(String kindnessLevel) {
         this.kindnessLevel = kindnessLevel;
     }
 

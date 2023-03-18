@@ -5,17 +5,26 @@
  */
 package view;
 
+import control.DptLogistic;
+
 /**
  *
  * @author SANTIAGO
  */
 public class Main_Menu extends javax.swing.JFrame {
-    
+    DptLogistic dptLogistic;
     /**
      * Creates new form Main_Menu
      */
-    public Main_Menu() {
+    public Main_Menu(DptLogistic dptLogistic) {
         initComponents();
+        this.dptLogistic = dptLogistic;
+        setLocationRelativeTo(this);
+        System.out.println(dptLogistic.getArraysControl().getMinorAnimals().get(0).getCode());
+    }
+
+    Main_Menu() {
+        
     }
 
     /**
@@ -146,9 +155,10 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void buttonAnimalControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnimalControlActionPerformed
         // TODO add your handling code here:
-        Animals_Control animals_Control = new Animals_Control();
+        Animals_Control animals_Control = new Animals_Control(dptLogistic);
         animals_Control.setVisible(true);
         dispose();
+   
     }//GEN-LAST:event_buttonAnimalControlActionPerformed
 
     private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed

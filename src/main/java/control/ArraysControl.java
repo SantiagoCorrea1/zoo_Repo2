@@ -34,22 +34,7 @@ public class ArraysControl {
     private ArrayList<Ticket> tickets = new ArrayList<>();
     private ArrayList<Person> persons = new ArrayList<>();
     private ArrayList<User> users = new ArrayList<>();
-            
-    public void addAnimal(Animal animal){
-        this.animals.add(animal);
-    }
-    
-    public void addDomestic(DomesticAnimal dA){
-        this.domesticAnimals.add(dA);
-    }
-    
-    public void addMinor(MinorAnimal mA){
-        this.minorAnimals.add(mA);
-    }
-    public void addSavage(SavageAnimal sA){
-        this.savageAnimals.add(sA);
-    }
-    
+           
     /**
      * @return the animals
      */

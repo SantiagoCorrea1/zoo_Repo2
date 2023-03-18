@@ -1,5 +1,9 @@
 
 package view;
+import control.DptLogistic;
+import utility.MinorAnimal;
+import utility.DomesticAnimal;
+import utility.SavageAnimal;
 
 /**
  *
@@ -7,6 +11,8 @@ package view;
  */
 public class Start_Page extends javax.swing.JFrame {
             
+    DptLogistic dptLogistic;
+    
     public Start_Page() {
         initComponents();
         setLocationRelativeTo(this);
@@ -79,7 +85,14 @@ public class Start_Page extends javax.swing.JFrame {
 
     private void buttonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartActionPerformed
             // TODO add your handling code here:
-            Main_Menu main_Menu = new Main_Menu();
+            DptLogistic dptLogistic = new DptLogistic();
+            DomesticAnimal domesticAnimal = new DomesticAnimal("canino", "alto", "001", "firulais", "20 kg", "domestico");
+            SavageAnimal savageAnimal = new SavageAnimal("medio", "nevados", "pinguino", "002", "pingui", "18 kg", "salvaje");
+            MinorAnimal minorAnimal = new MinorAnimal("lemur", "bosques", "ni idea", "003", "rey julien", "15kg", "menor");
+            dptLogistic.addDomesticAnimals(domesticAnimal);
+            dptLogistic.addSavageAnimals(savageAnimal);
+            dptLogistic.addMinorAnimals(minorAnimal);
+            Main_Menu main_Menu = new Main_Menu(dptLogistic);
             main_Menu.setVisible(true);
             dispose();
     }//GEN-LAST:event_buttonStartActionPerformed

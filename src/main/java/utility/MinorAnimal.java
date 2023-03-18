@@ -15,7 +15,7 @@ public class MinorAnimal extends Animal{
     private String habitat;
     private String use;
 
-    public MinorAnimal(String vulgarName, String habitat, String use, int code, String name, float weigth, String type) {
+    public MinorAnimal(String vulgarName, String habitat, String use, String code, String name, String weigth, String type) {
         super(code, name, weigth, type);
         this.vulgarName = vulgarName;
         this.habitat = habitat;

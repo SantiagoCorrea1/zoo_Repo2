@@ -17,7 +17,7 @@ public class SavageAnimal extends Animal{
     public SavageAnimal() {
     }
 
-    public SavageAnimal(String dangerLevel, String habitat, String species, int code, String name, float weigth, String type) {
+    public SavageAnimal(String dangerLevel, String habitat, String species, String code, String name, String weigth, String type) {
         super(code, name, weigth, type);
         this.dangerLevel = dangerLevel;
         this.habitat = habitat;

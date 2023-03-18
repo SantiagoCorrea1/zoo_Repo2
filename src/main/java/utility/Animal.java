@@ -10,15 +10,15 @@ package utility;
  * @author SANTIAGO
  */
 public class Animal {
-    private int code;
+    private String code;
     private String name;
-    private float weigth;
+    private String weigth;
     private String type;
 
     public Animal() {
     }
 
-    public Animal(int code, String name, float weigth, String type) {
+    public Animal(String code, String name, String weigth, String type) {
         this.code = code;
         this.name = name;
         this.weigth = weigth;
@@ -29,14 +29,14 @@ public class Animal {
     /**
      * @return the code
      */
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
     /**
      * @param code the code to set
      */
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -57,14 +57,14 @@ public class Animal {
     /**
      * @return the weigth
      */
-    public float getWeigth() {
+    public String getWeigth() {
         return weigth;
     }
 
     /**
      * @param weigth the weigth to set
      */
-    public void setWeigth(float weigth) {
+    public void setWeigth(String weigth) {
         this.weigth = weigth;
     }
 

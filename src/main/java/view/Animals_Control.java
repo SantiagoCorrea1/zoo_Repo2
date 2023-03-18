@@ -5,17 +5,25 @@
  */
 package view;
 
+import control.DptLogistic;
+
 /**
  *
  * @author SANTIAGO
  */
 public class Animals_Control extends javax.swing.JFrame {
-
+    
+    DptLogistic dptLogistic;
     /**
      * Creates new form Animals_Control
      */
-    public Animals_Control() {
+    public Animals_Control(DptLogistic dptLogistic) {
         initComponents();
+        this.dptLogistic =  dptLogistic;
+        
+    }
+
+    Animals_Control() {
     }
 
     /**
@@ -118,35 +126,35 @@ public class Animals_Control extends javax.swing.JFrame {
 
     private void buttonEditAnimalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditAnimalsActionPerformed
         // TODO add your handling code here:
-       View_Animals view_Animals =  new View_Animals();
+       View_Animals view_Animals =  new View_Animals(dptLogistic);
        view_Animals.setVisible(true);
        dispose();
     }//GEN-LAST:event_buttonEditAnimalsActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Main_Menu main_Menu =  new Main_Menu();
+        Main_Menu main_Menu =  new Main_Menu(dptLogistic);
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonEditDomesticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditDomesticActionPerformed
         // TODO add your handling code here:
-        Edit_DomesticAnimals edit_DomesticAnimals =  new Edit_DomesticAnimals();
+        Edit_DomesticAnimals edit_DomesticAnimals =  new Edit_DomesticAnimals(dptLogistic);
         edit_DomesticAnimals.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditDomesticActionPerformed
 
     private void buttonEditSavagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSavagesActionPerformed
         // TODO add your handling code here:
-        Edit_SavageAnimals edit_SavageAnimals = new Edit_SavageAnimals();
+        Edit_SavageAnimals edit_SavageAnimals = new Edit_SavageAnimals(dptLogistic);
         edit_SavageAnimals.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditSavagesActionPerformed
 
     private void buttonEditMinorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditMinorsActionPerformed
         // TODO add your handling code here:
-        Edit_MinorAnimals edit_MinorAnimals = new Edit_MinorAnimals();
+        Edit_MinorAnimals edit_MinorAnimals = new Edit_MinorAnimals(dptLogistic);
         edit_MinorAnimals.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditMinorsActionPerformed
