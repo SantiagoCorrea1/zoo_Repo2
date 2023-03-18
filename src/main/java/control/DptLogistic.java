@@ -148,7 +148,7 @@ public class DptLogistic {
                 }
     }
     
-     public void reubicarAnimales() {  //cuando muer
+     public void reubicarAnimales() {  //cuando mue
         
     }
 }
