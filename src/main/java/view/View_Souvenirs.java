@@ -16,6 +16,7 @@ public class View_Souvenirs extends javax.swing.JFrame {
      */
     public View_Souvenirs() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

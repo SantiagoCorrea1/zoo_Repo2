@@ -6,19 +6,23 @@
 package view;
 
 import control.DptLogistic;
+import control.DptSales;
+import control.MainClass;
 
 /**
  *
  * @author SANTIAGO
  */
 public class Main_Menu extends javax.swing.JFrame {
-    DptLogistic dptLogistic;
+    //DptLogistic dptLogistic;
+    //DptSales dptSales;
+    MainClass mainClass;
     /**
      * Creates new form Main_Menu
      */
-    public Main_Menu(DptLogistic dptLogistic) {
+    public Main_Menu(MainClass mainClass) {
         initComponents();
-        this.dptLogistic = dptLogistic;
+        this.mainClass = mainClass;
         setLocationRelativeTo(this);
     }
 
@@ -42,7 +46,7 @@ public class Main_Menu extends javax.swing.JFrame {
         buttonClose = new javax.swing.JButton();
         buttonSouvenirControl = new javax.swing.JButton();
         buttonPassesContro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        buttonAccountingControl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(500, 400));
@@ -92,10 +96,10 @@ public class Main_Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Gestionar Contabilidad");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonAccountingControl.setText("Gestionar Contabilidad");
+        buttonAccountingControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonAccountingControlActionPerformed(evt);
             }
         });
 
@@ -106,7 +110,7 @@ public class Main_Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(175, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAccountingControl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(buttonClose, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -136,7 +140,7 @@ public class Main_Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(buttonPassesContro)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(buttonAccountingControl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(buttonClose)
                 .addGap(21, 21, 21))
@@ -147,14 +151,14 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void buttonTicketsControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTicketsControlActionPerformed
         // TODO add your handling code here:
-        Tickest_Control tickest_Control = new Tickest_Control();
+        Tickest_Control tickest_Control = new Tickest_Control(mainClass);
         tickest_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonTicketsControlActionPerformed
 
     private void buttonAnimalControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnimalControlActionPerformed
         // TODO add your handling code here:
-        Animals_Control animals_Control = new Animals_Control(dptLogistic);
+        Animals_Control animals_Control = new Animals_Control(mainClass);
         animals_Control.setVisible(true);
         dispose();
    
@@ -185,12 +189,12 @@ public class Main_Menu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_buttonPassesControActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void buttonAccountingControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAccountingControlActionPerformed
         // TODO add your handling code here:
         Accounting_Control accounting_Control = new Accounting_Control();
         accounting_Control.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_buttonAccountingControlActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,13 +232,13 @@ public class Main_Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonAccountingControl;
     private javax.swing.JButton buttonAnimalControl;
     private javax.swing.JButton buttonClose;
     private javax.swing.JButton buttonPassesContro;
     private javax.swing.JButton buttonPlansControl;
     private javax.swing.JButton buttonSouvenirControl;
     private javax.swing.JButton buttonTicketsControl;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

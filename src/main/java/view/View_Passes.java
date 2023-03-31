@@ -16,6 +16,7 @@ public class View_Passes extends javax.swing.JFrame {
      */
     public View_Passes() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

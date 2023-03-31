@@ -5,27 +5,42 @@
  */
 package view;
 import utility.MinorAnimal;
-import control.DptLogistic;
+import control.MainClass;
 import static javax.swing.JOptionPane.showMessageDialog;
 /**
  *
  * @author SANTIAGO
  */
 public class Edit_MinorAnimals extends javax.swing.JFrame {
-    DptLogistic dptLogistic = new DptLogistic();
+    MainClass mainClass;
     /**
      * Creates new form Edit_Animals
      * @param dptLogistic
      */
-    public Edit_MinorAnimals(DptLogistic dptLogistic) {
+    public Edit_MinorAnimals(MainClass mainClass) {
         initComponents();
-        this.dptLogistic = dptLogistic;
+        this.mainClass = mainClass;
+        setLocationRelativeTo(this);
     }
 
     Edit_MinorAnimals() {
        
     }
-
+    
+    void setNull(){
+        boxCode.setText("");
+        boxCodeDelete.setText("");
+        boxCodeEdit.setText("");
+        boxEditVulgarName.setText("");
+        boxEditWeigth.setText("");
+        boxEdituse.setText("");
+        boxHabitat.setText("");
+        boxName.setText("");
+        boxType.setText("");
+        boxUse.setText("");
+        boxVulgarName.setText("");
+        boxWeigth.setText("");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -360,9 +375,10 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Animals_Control animals_Control = new Animals_Control(dptLogistic);
+        Animals_Control animals_Control = new Animals_Control(mainClass);
         animals_Control.setVisible(true);
         dispose();
+        setNull();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void boxCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxCodeActionPerformed
@@ -382,16 +398,23 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
         String code =  boxCodeEdit.getText();
         MinorAnimal minorAnimal =  new MinorAnimal(boxCodeEdit.getText(), "", boxEdituse.getText(),
                 boxCodeEdit.getText(), boxEditName.getText(), boxEditWeigth.getText(), ""); //vacío el tipo porque eso no se va a editar
-        dptLogistic.editMinorAnimals(code, minorAnimal);
+        mainClass.getDptLogistic().editMinorAnimals(code, minorAnimal);
+        setNull();
 
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         // TODO add your handling code here:
+        
         MinorAnimal newMinorAnimal =  new MinorAnimal(boxVulgarName.getText(), boxHabitat.getText(), boxUse.getText(),
                 boxCode.getText(), boxName.getText(), boxWeigth.getText(), boxType.getText());
-        dptLogistic.addMinorAnimals(newMinorAnimal);
-        System.out.println(dptLogistic.getArraysControl().getMinorAnimals().get(0).getCode());
+        if (mainClass.getDptLogistic().animalExits(boxCode.getText())) {
+            showMessageDialog(null, "el animal ya existe");
+        } else {
+            mainClass.getDptLogistic().addMinorAnimals(newMinorAnimal);
+            showMessageDialog(null, "el animal fue agregado correctamente");
+        }
+        setNull();
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void boxVulgarNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxVulgarNameActionPerformed
@@ -412,7 +435,8 @@ public class Edit_MinorAnimals extends javax.swing.JFrame {
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
         // TODO add your handling code here:
-        dptLogistic.deleteAnimal(boxCodeDelete.getText(), "menor");
+        mainClass.getDptLogistic().deleteAnimal(boxCodeDelete.getText(), "menor");
+        setNull();
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     /**

@@ -16,6 +16,7 @@ public class View_Plans extends javax.swing.JFrame {
      */
     public View_Plans() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

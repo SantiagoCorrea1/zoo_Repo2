@@ -4,24 +4,23 @@
  * and open the template in the editor.
  */
 package view;
-import control.DptLogistic;
+import control.MainClass;
 /**
  *
  * @author SANTIAGO
  */
 public class View_Animals extends javax.swing.JFrame {
-    DptLogistic dptLogistic = new DptLogistic();
+    MainClass mainClass;
     /**
      * Creates new form Edit_Animals
-     * @param dptLogistic
      */
-    public View_Animals(DptLogistic dptLogistic) {
+    public View_Animals(MainClass mainClass) {
         initComponents();
-        this.dptLogistic = dptLogistic;
+        this.mainClass = mainClass;
+        setLocationRelativeTo(this);
     }
 
     View_Animals() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
@@ -107,7 +106,7 @@ public class View_Animals extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Animals_Control animals_Control = new Animals_Control(dptLogistic);
+        Animals_Control animals_Control = new Animals_Control(mainClass);
         animals_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed

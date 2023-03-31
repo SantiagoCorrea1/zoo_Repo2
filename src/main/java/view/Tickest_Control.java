@@ -5,17 +5,25 @@
  */
 package view;
 
+import control.MainClass;
+
 /**
  *
  * @author SANTIAGO
  */
 public class Tickest_Control extends javax.swing.JFrame {
-    
+    MainClass mainClass;
     /**
      * Creates new form Tickest_Control
      */
-    public Tickest_Control() {
+    public Tickest_Control(MainClass mainClass) {
         initComponents();
+        this.mainClass = mainClass;
+        setLocationRelativeTo(this);
+    }
+
+    Tickest_Control() {
+
     }
 
     /**
@@ -84,9 +92,9 @@ public class Tickest_Control extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(51, 51, 51)
                 .addComponent(buttonViewTickets)
-                .addGap(30, 30, 30)
-                .addComponent(buttonEditTickets)
                 .addGap(18, 18, 18)
+                .addComponent(buttonEditTickets)
+                .addGap(30, 30, 30)
                 .addComponent(buttonBack)
                 .addContainerGap(136, Short.MAX_VALUE))
         );
@@ -96,21 +104,21 @@ public class Tickest_Control extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Main_Menu main_Menu = new Main_Menu();
+        Main_Menu main_Menu = new Main_Menu(mainClass);
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonViewTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewTicketsActionPerformed
         // TODO add your handling code here:
-        View_Tickets view_Tickets = new View_Tickets();
+        View_Tickets view_Tickets = new View_Tickets(mainClass);
         view_Tickets.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonViewTicketsActionPerformed
 
     private void buttonEditTicketsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditTicketsActionPerformed
         // TODO add your handling code here:
-        Edit_Tickets edit_Tickets = new Edit_Tickets();
+        Edit_Tickets edit_Tickets = new Edit_Tickets(mainClass);
         edit_Tickets.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditTicketsActionPerformed

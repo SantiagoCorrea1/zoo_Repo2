@@ -14,8 +14,39 @@ import utility.Ticket;
  */
 public class DptSales {
     
-    ArraysControl arraysControl = new ArraysControl();
-    VerificationMetodesSales vms = new VerificationMetodesSales();
+    private ArraysControl arraysControl = new ArraysControl();
+    
+    public boolean ticketExits (String code){
+            for (int i = 0; i < getArraysControl().getTickets().size(); i++) {
+                if (getArraysControl().getTickets().get(i).getCode().equals(code)) {
+                    return true;
+                }
+            }
+        return false;
+    }
+    
+    //si existe el animal menor lo retorna
+    public Ticket returnTicket (String code) {
+        for (int i = 0; i < getArraysControl().getTickets().size(); i++) {
+            if (getArraysControl().getTickets().get(i).getCode().equals(code)) {
+                return getArraysControl().getTickets().get(i);
+            }
+        }
+        return null;
+    }
+    
+    public int getPositionTickets (String code) {
+        for (int i = 0; i < getArraysControl().getTickets().size(); i++) {
+            if (ticketExits(code) && getArraysControl().getTickets().get(i).getCode().equals(code)) {
+                return getArraysControl().getTickets().indexOf(returnTicket(code)) ;
+                }
+        }
+        return -1;
+    }
+    
+    public void verificationUser (){
+        
+    }
     
     public void newPlan() {
         
@@ -49,30 +80,29 @@ public class DptSales {
     
     }
     
-    public void newTicket() {
-        Ticket ticket = new Ticket(0, "", 0);
-        arraysControl.getTickets().add(0, ticket);
+    public void newTicket(Ticket t) {
+        getArraysControl().getTickets().add(t);
     }
     
     public void editTicket (String code, Ticket t) {
-        if (vms.ticketExits(code)) {
-            Ticket b = vms.returnTicket(code);
+        if (ticketExits(code)) {
+            Ticket b = returnTicket(code);
             b.setAge_restriction(t.getAge_restriction());
             b.setPrice(t.getPrice());
-            showMessageDialog(null, "el animal fue editado correctamente");
+            showMessageDialog(null, "el tiquete fue editado correctamente");
         } else{
-            showMessageDialog(null, "no existe al animal con ese código");
+            showMessageDialog(null, "no existe al tiquete con ese código");
                 }
     }
     
     public void cancelTicket(String code){
         
-        if (vms.ticketExits(code)) {
-            if (vms.getPositionTickets(code) != -1) {
-                arraysControl.getTickets().remove(vms.getPositionTickets(code));
-                showMessageDialog(null, "el tickete fue eliminado de la base de datos");
+        if (ticketExits(code)) {
+            if (getPositionTickets(code) != -1) {
+                getArraysControl().getTickets().remove(getPositionTickets(code));
+                showMessageDialog(null, "el tiquete fue eliminado de la base de datos");
             } else {
-                showMessageDialog(null, "no sé encontró el ticket en la base de datos");
+                showMessageDialog(null, "no sé encontró el tiquete en la base de datos");
             }
         }
     }
@@ -95,6 +125,13 @@ public class DptSales {
     
     public void sellTicket(){
     
+    }
+
+    /**
+     * @return the arraysControl
+     */
+    public ArraysControl getArraysControl() {
+        return arraysControl;
     }
     
     

@@ -16,6 +16,7 @@ public class Edit_Souvenirs extends javax.swing.JFrame {
      */
     public Edit_Souvenirs() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

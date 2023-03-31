@@ -5,17 +5,25 @@
  */
 package view;
 
+import control.MainClass;
+
 /**
  *
  * @author SANTIAGO
  */
 public class View_Tickets extends javax.swing.JFrame {
-
+    MainClass mainClass;
     /**
      * Creates new form View_Tickets
      */
-    public View_Tickets() {
+    public View_Tickets(MainClass mainClass) {
         initComponents();
+        this.mainClass = mainClass;
+        setLocationRelativeTo(this);
+    }
+
+    private View_Tickets() {
+     
     }
 
     /**
@@ -124,7 +132,7 @@ public class View_Tickets extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Tickest_Control tickest_Control = new Tickest_Control();
+        Tickest_Control tickest_Control = new Tickest_Control(mainClass);
         tickest_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed

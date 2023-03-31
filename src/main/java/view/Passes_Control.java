@@ -16,6 +16,7 @@ public class Passes_Control extends javax.swing.JFrame {
     /** Creates new form Passes_Control */
     public Passes_Control() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /** This method is called from within the constructor to

@@ -1,9 +1,12 @@
 
 package view;
-import control.DptLogistic;
+//import control.DptLogistic;
+//import control.DptSales;
 import utility.MinorAnimal;
 import utility.DomesticAnimal;
 import utility.SavageAnimal;
+import utility.Ticket;
+import control.MainClass;
 
 /**
  *
@@ -11,7 +14,10 @@ import utility.SavageAnimal;
  */
 public class Start_Page extends javax.swing.JFrame {
             
-    DptLogistic dptLogistic;
+    //DptLogistic dptLogistic;
+    //DptSales dptSales;
+    MainClass mainClass;
+    
     
     public Start_Page() {
         initComponents();
@@ -85,14 +91,20 @@ public class Start_Page extends javax.swing.JFrame {
 
     private void buttonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonStartActionPerformed
             // TODO add your handling code here:
-            DptLogistic dptLogistic = new DptLogistic();
+            //DptLogistic dptLogistic = new DptLogistic();
+            //DptSales dptSales = new DptSales();
+            MainClass mainClass = new MainClass();
             DomesticAnimal domesticAnimal = new DomesticAnimal("canino", "alto", "001", "firulais", "20 kg", "domestico");
             SavageAnimal savageAnimal = new SavageAnimal("medio", "nevados", "pinguino", "002", "pingui", "18 kg", "salvaje");
             MinorAnimal minorAnimal = new MinorAnimal("lemur", "bosques", "ni idea", "003", "rey julien", "15kg", "menor");
-            dptLogistic.addDomesticAnimals(domesticAnimal);
-            dptLogistic.addSavageAnimals(savageAnimal);
-            dptLogistic.addMinorAnimals(minorAnimal);
-            Main_Menu main_Menu = new Main_Menu(dptLogistic);
+            Ticket ticket_kids = new Ticket(4000, "0001", 12);
+            Ticket ticket_adults = new Ticket(10000, "0002", 999);
+            mainClass.getDptLogistic().addDomesticAnimals(domesticAnimal);
+            mainClass.getDptLogistic().addSavageAnimals(savageAnimal);
+            mainClass.getDptLogistic().addMinorAnimals(minorAnimal);
+            mainClass.getDptSales().newTicket(ticket_kids);
+            mainClass.getDptSales().newTicket(ticket_adults);
+            Main_Menu main_Menu = new Main_Menu(mainClass);
             main_Menu.setVisible(true);
             dispose();
     }//GEN-LAST:event_buttonStartActionPerformed

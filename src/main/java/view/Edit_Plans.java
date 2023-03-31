@@ -16,6 +16,7 @@ public class Edit_Plans extends javax.swing.JFrame {
      */
     public Edit_Plans() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

@@ -16,6 +16,7 @@ public class Souvenir_Control extends javax.swing.JFrame {
      */
     public Souvenir_Control() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

@@ -16,6 +16,7 @@ public class Plans_Control extends javax.swing.JFrame {
      */
     public Plans_Control() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**

@@ -16,6 +16,7 @@ public class Edit_Passes extends javax.swing.JFrame {
      */
     public Edit_Passes() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
