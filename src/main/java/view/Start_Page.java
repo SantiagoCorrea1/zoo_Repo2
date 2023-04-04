@@ -7,6 +7,7 @@ import utility.DomesticAnimal;
 import utility.SavageAnimal;
 import utility.Ticket;
 import control.MainClass;
+import utility.Souvenir;
 
 /**
  *
@@ -97,13 +98,17 @@ public class Start_Page extends javax.swing.JFrame {
             DomesticAnimal domesticAnimal = new DomesticAnimal("canino", "alto", "001", "firulais", "20 kg", "domestico");
             SavageAnimal savageAnimal = new SavageAnimal("medio", "nevados", "pinguino", "002", "pingui", "18 kg", "salvaje");
             MinorAnimal minorAnimal = new MinorAnimal("lemur", "bosques", "ni idea", "003", "rey julien", "15kg", "menor");
-            Ticket ticket_kids = new Ticket(4000, "0001", 12);
-            Ticket ticket_adults = new Ticket(10000, "0002", 999);
+            Ticket ticket_kids = new Ticket(6000, "001", 12);
+            Ticket ticket_adults = new Ticket(10000, "002", 999);
+            Souvenir souvenir1 = new Souvenir("001", "oso de peluche de leon", 35000, 15);
+            Souvenir souvenir2 = new Souvenir("002", "oso de peluche de tigre", 35000, 10);
             mainClass.getDptLogistic().addDomesticAnimals(domesticAnimal);
             mainClass.getDptLogistic().addSavageAnimals(savageAnimal);
             mainClass.getDptLogistic().addMinorAnimals(minorAnimal);
             mainClass.getDptSales().newTicket(ticket_kids);
             mainClass.getDptSales().newTicket(ticket_adults);
+            mainClass.getDptSales().newSouvenir(souvenir1);
+            mainClass.getDptSales().newSouvenir(souvenir2);
             Main_Menu main_Menu = new Main_Menu(mainClass);
             main_Menu.setVisible(true);
             dispose();

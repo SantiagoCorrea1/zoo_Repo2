@@ -10,6 +10,8 @@ package control;
  * @author SANTIAGO
  */
 public class MainClass {
+    
+    private ArraysControl arraysControl = new ArraysControl();
     DptSales dptSales = new DptSales();
     DptLogistic dptLogistic =  new DptLogistic();
     DptAccounting dptAccounting = new DptAccounting();
@@ -24,6 +26,13 @@ public class MainClass {
 
     public DptAccounting getDptAccounting() {
         return dptAccounting;
+    }
+
+    /**
+     * @return the arraysControl
+     */
+    public ArraysControl getArraysControl() {
+        return arraysControl;
     }
     
     

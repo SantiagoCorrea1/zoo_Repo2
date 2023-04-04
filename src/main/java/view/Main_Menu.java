@@ -170,21 +170,21 @@ public class Main_Menu extends javax.swing.JFrame {
 
     private void buttonPlansControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlansControlActionPerformed
         // TODO add your handling code here:
-        Plans_Control plans_Control = new Plans_Control();
+        Plans_Control plans_Control = new Plans_Control(mainClass);
         plans_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonPlansControlActionPerformed
 
     private void buttonSouvenirControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSouvenirControlActionPerformed
         // TODO add your handling code here:
-        Souvenir_Control souvenir_Control = new Souvenir_Control();
+        Souvenir_Control souvenir_Control = new Souvenir_Control(mainClass);
         souvenir_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonSouvenirControlActionPerformed
 
     private void buttonPassesControActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPassesControActionPerformed
         // TODO add your handling code here:
-        Passes_Control passes_Control = new Passes_Control();
+        Passes_Control passes_Control = new Passes_Control(mainClass);
         passes_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonPassesControActionPerformed

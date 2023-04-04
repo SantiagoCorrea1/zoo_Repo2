@@ -5,12 +5,15 @@
  */
 package view;
 import control.MainClass;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author SANTIAGO
  */
 public class View_Animals extends javax.swing.JFrame {
     MainClass mainClass;
+    DefaultTableModel dtm = new DefaultTableModel();
+
     /**
      * Creates new form Edit_Animals
      */
@@ -18,6 +21,9 @@ public class View_Animals extends javax.swing.JFrame {
         initComponents();
         this.mainClass = mainClass;
         setLocationRelativeTo(this);
+        String[] title = new String[]{"code", "nombre", "type", "weigth"};
+        dtm.setColumnIdentifiers(title);
+        tableAnimals.setModel(dtm);
     }
 
     View_Animals() {
@@ -34,13 +40,13 @@ public class View_Animals extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableAnimals = new javax.swing.JTable();
         buttonBack = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableAnimals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -59,7 +65,7 @@ public class View_Animals extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableAnimals);
 
         buttonBack.setText("Regresar");
         buttonBack.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +157,6 @@ public class View_Animals extends javax.swing.JFrame {
     private javax.swing.JButton buttonBack;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableAnimals;
     // End of variables declaration//GEN-END:variables
 }

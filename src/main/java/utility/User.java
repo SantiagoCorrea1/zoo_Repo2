@@ -9,18 +9,19 @@ package utility;
  *
  * @author SANTIAGO
  */
-public class User {
+public class User extends Person{
     private boolean work;
     private int cantTimesPerYear;
     private double pass;
 
-    public User() {
-    }
-
-    public User(boolean work, int cantTimesPerYear, double pass) {
+    public User(boolean work, int cantTimesPerYear, double pass, String name, String id, int age) {
+        super(name, id, age);
         this.work = work;
         this.cantTimesPerYear = cantTimesPerYear;
         this.pass = pass;
+    }
+    
+    public User() {
     }
 
     /**

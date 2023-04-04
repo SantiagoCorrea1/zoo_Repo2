@@ -5,18 +5,25 @@
  */
 package view;
 
+import control.MainClass;
+
 /**
  *
  * @author SANTIAGO
  */
 public class Souvenir_Control extends javax.swing.JFrame {
-    
+    MainClass mainClass;
     /**
      * Creates new form Souvenir_Control
      */
-    public Souvenir_Control() {
+    public Souvenir_Control(MainClass mainClass) {
         initComponents();
+        this.mainClass = mainClass;
         setLocationRelativeTo(this);
+    }
+
+    private Souvenir_Control() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -98,21 +105,21 @@ public class Souvenir_Control extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Main_Menu main_Menu = new Main_Menu();
+        Main_Menu main_Menu = new Main_Menu(mainClass);
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonViewSouvenirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewSouvenirActionPerformed
         // TODO add your handling code here:
-        View_Souvenirs view_Souvenirs =  new View_Souvenirs();
+        View_Souvenirs view_Souvenirs =  new View_Souvenirs(mainClass);
         view_Souvenirs.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonViewSouvenirActionPerformed
 
     private void buttonEditSouvenirsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditSouvenirsActionPerformed
         // TODO add your handling code here:
-        Edit_Souvenirs edit_Souvenirs = new Edit_Souvenirs();
+        Edit_Souvenirs edit_Souvenirs = new Edit_Souvenirs(mainClass);
         edit_Souvenirs.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditSouvenirsActionPerformed

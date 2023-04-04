@@ -237,4 +237,8 @@ public class DptLogistic {
                 showMessageDialog(null, "no se encontró el animal");
                         }
     }
+    
+    //interfaces de animales y métodos de actividades
+    //pdf
+    //
 }
