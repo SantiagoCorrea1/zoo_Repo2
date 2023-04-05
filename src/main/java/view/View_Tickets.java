@@ -8,6 +8,7 @@ package view;
 import control.MainClass;
 import static javax.swing.JOptionPane.showMessageDialog;
 import utility.Person;
+import utility.Ticket;
 
 /**
  *
@@ -15,8 +16,9 @@ import utility.Person;
  */
 public class View_Tickets extends javax.swing.JFrame {
     MainClass mainClass;
-    int amountAdult = 0;
-    int amountKid = 0;
+    int amount;
+    double price;
+    double income;
     /**
      * Creates new form View_Tickets
      */
@@ -34,6 +36,7 @@ public class View_Tickets extends javax.swing.JFrame {
         boxAge.setText("");
         boxId.setText("");
         boxName.setText("");
+        boxCode.setText("");
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,14 +56,16 @@ public class View_Tickets extends javax.swing.JFrame {
         boxName = new javax.swing.JTextField();
         boxId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        boxAmountAdult = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        boxAmountKid = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         boxAge = new javax.swing.JTextField();
         buttonAdd = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        boxBill = new javax.swing.JTextArea();
+        buttonCancel = new javax.swing.JButton();
+        buttonEnd = new javax.swing.JButton();
+        boxCode = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,27 +103,38 @@ public class View_Tickets extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Ver boletas");
 
-        jLabel3.setText("Cantidad Adultos");
-
-        boxAmountAdult.setEditable(false);
-        boxAmountAdult.setText("0");
-
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel4.setText("Ingrese los datos del cliente");
 
-        boxAmountKid.setEditable(false);
-        boxAmountKid.setText("0");
-
-        jLabel8.setText("Cantidad Niños");
-
         jLabel9.setText("edad");
 
-        buttonAdd.setText("guardar");
+        buttonAdd.setText("agregar");
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddActionPerformed(evt);
             }
         });
+
+        boxBill.setEditable(false);
+        boxBill.setColumns(20);
+        boxBill.setRows(5);
+        jScrollPane2.setViewportView(boxBill);
+
+        buttonCancel.setText("Cancelar");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
+
+        buttonEnd.setText("terminar");
+        buttonEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEndActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("code");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,20 +153,9 @@ public class View_Tickets extends javax.swing.JFrame {
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(170, 170, 170)
-                                        .addComponent(jLabel5))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(166, 166, 166)
-                                .addComponent(jLabel4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(buttonSell)
+                                        .addComponent(jLabel5))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel3)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(boxAmountAdult, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel2)
@@ -162,15 +167,25 @@ public class View_Tickets extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel9)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(boxAge, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(43, 43, 43)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(boxAge, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel3)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(boxAmountKid, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(buttonAdd))))))
-                        .addGap(0, 70, Short.MAX_VALUE)))
+                                                .addComponent(boxCode, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(27, 27, 27)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(buttonEnd)
+                                            .addComponent(buttonAdd)
+                                            .addComponent(buttonCancel))
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(166, 166, 166)
+                                .addComponent(jLabel4))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(buttonSell)))
+                        .addGap(0, 40, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -182,28 +197,28 @@ public class View_Tickets extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(boxAmountKid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(boxCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(boxAmountAdult, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(boxName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(boxName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(boxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(boxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(boxAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                            .addComponent(buttonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(buttonSell, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(buttonBack)
@@ -221,35 +236,50 @@ public class View_Tickets extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        // TODO add your handling code here:        
-        
+        // TODO add your handling code here:                
         if (boxAge.getText().equals("") || boxName.getText().equals("") || boxId.getText().equals("")) {
             showMessageDialog(null, "debe llenar todos los campos");
-        } else if (Integer.parseInt(boxAge.getText()) <= 12) {
-            Person adultPerson = new Person(boxName.getText(), boxId.getText(), Integer.parseInt(boxAge.getText()));
-            mainClass.getDptSales().getArraysControl().getPersons().add(adultPerson);
-            amountKid = amountKid + 1;
         } else {
-            Person adultPerson = new Person(boxName.getText(), boxId.getText(), Integer.parseInt(boxAge.getText()));
-            mainClass.getDptSales().getArraysControl().getPersons().add(adultPerson);
-            amountAdult = amountAdult + 1;
+            Person newPerson = new Person(boxName.getText(), boxId.getText(), Integer.parseInt(boxAge.getText()));
+            mainClass.getDptSales().getArraysControl().getPersons().add(newPerson);
+            Ticket ticket= mainClass.getDptSales().returnTicket(boxCode.getText());
+            price = ticket.getPrice();
+            if (newPerson.getAge() > ticket.getAge_restriction()) {
+                showMessageDialog(null, "este ticket no es apto para esta persona");
+            } else {
+                income = income +  price;
+                boxBill.append("code: " + ticket.getCode() + " cant: " + 1 + "\n");
+            }
         }          
-        boxAmountAdult.setText(amountAdult + "");
-        boxAmountKid.setText(amountKid + "");
+        amount ++;
         setNull();
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSellActionPerformed
         // TODO add your handling code here:
-        if (boxAmountKid.equals("") || boxAmountAdult.equals("")) {
-           showMessageDialog(null, "no se pueden vender 0 boletas");
+        if (amount == 0 || income == 0) {
+           showMessageDialog(null, "debe agregar algo a la factura");
         } else {
-            mainClass.getDptSales().sellTicket(Integer.parseInt(boxAmountAdult.getText()), Integer.parseInt(boxAmountKid.getText()));
+            mainClass.getDptSales().sellTicket(income, amount);
         }
         setNull();
-        boxAmountAdult.setText("");
-        boxAmountKid.setText("");
+        boxBill.setText("");
     }//GEN-LAST:event_buttonSellActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        // TODO add your handling code here:
+        setNull();
+        amount = 0;
+        price = 0;
+        income = 0;
+        boxBill.setText("");
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void buttonEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEndActionPerformed
+        // TODO add your handling code here:
+        boxBill.append("total: " + income);
+        setNull();
+    }//GEN-LAST:event_buttonEndActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,21 +318,23 @@ public class View_Tickets extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField boxAge;
-    private javax.swing.JTextField boxAmountAdult;
-    private javax.swing.JTextField boxAmountKid;
+    private javax.swing.JTextArea boxBill;
+    private javax.swing.JTextField boxCode;
     private javax.swing.JTextField boxId;
     private javax.swing.JTextField boxName;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonBack;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonEnd;
     private javax.swing.JButton buttonSell;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

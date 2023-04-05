@@ -101,8 +101,8 @@ public class Start_Page extends javax.swing.JFrame {
             MinorAnimal minorAnimal = new MinorAnimal("lemur", "bosques", "ni idea", "003", "rey julien", "15kg", "menor");
             Ticket ticket_kids = new Ticket(6000, "001", 12);
             Ticket ticket_adults = new Ticket(10000, "002", 999);
-            Souvenir souvenir1 = new Souvenir("001", "oso de peluche de leon", 35000, 15);
-            Souvenir souvenir2 = new Souvenir("002", "oso de peluche de tigre", 35000, 10);
+            Souvenir souvenir1 = new Souvenir("001", "oso de peluche de leon", 35000);
+            Souvenir souvenir2 = new Souvenir("002", "oso de peluche de tigre", 35000);
             Pass pass1 = new Pass(100000, "001", 13);
             Pass pass2 = new Pass(80000, "002", 10);
             mainClass.getDptLogistic().addDomesticAnimals(domesticAnimal);

@@ -225,16 +225,13 @@ public class DptSales {
         }
     }
     
-    public void sellTicket(int amountAdult, int amountKid){ 
-        
-        double income = accounting.getIncome();
+    public void sellTicket(double income, int amount){ 
+        double currentIncome = accounting.getIncome();
         int currentSold = accounting.getTickets_sold();
-        double valueAdult = amountAdult * returnTicket("0002").getPrice();
-        double valueKid = amountAdult * returnTicket("0001").getPrice();
-        income = income + valueAdult + valueKid;
-        currentSold = currentSold + amountAdult + amountKid;
+        currentIncome = currentIncome + income;
+        currentSold = currentSold + amount;
         accounting.setTickets_sold(currentSold);
-        accounting.setIncome(income);
+        accounting.setIncome(currentIncome);
         showMessageDialog(null, "se han vendido correctamente las boletas");
     }
 

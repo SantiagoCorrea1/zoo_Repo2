@@ -13,11 +13,9 @@ public class Souvenir {
     private String code;
     private String description;
     private double price;
-    private int amountInStock;
 
-    public Souvenir(String code, String description, double price, int amountInStock) {
+    public Souvenir(String code, String description, double price) {
         this.code = code;
-        this.amountInStock = amountInStock;
         this.description = description;
         this.price = price;
     }
@@ -28,7 +26,6 @@ public class Souvenir {
         sb.append("Souvenir{code=").append(code);
         sb.append(", description=").append(description);
         sb.append(", price=").append(price);
-        sb.append(", amountInStock=").append(getAmountInStock());
         sb.append('}');
         return sb.toString();
     }
@@ -77,20 +74,6 @@ public class Souvenir {
      */
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    /**
-     * @return the amountInStock
-     */
-    public int getAmountInStock() {
-        return amountInStock;
-    }
-
-    /**
-     * @param amountInStock the amountInStock to set
-     */
-    public void setAmountInStock(int amountInStock) {
-        this.amountInStock = amountInStock;
     }
     
     

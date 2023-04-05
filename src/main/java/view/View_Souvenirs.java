@@ -204,7 +204,7 @@ public class View_Souvenirs extends javax.swing.JFrame {
 
     private void buttonSellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSellActionPerformed
         // TODO add your handling code here
-        if (income == 0 || amount == 0 || price == 0) {
+        if ((income == 0 || amount == 0 || price == 0)) {
             showMessageDialog(null, "debe agregar algo a la cuenta");
         } else {
             mainClass.getDptSales().sellSouvenir(income, amount);
@@ -215,11 +215,17 @@ public class View_Souvenirs extends javax.swing.JFrame {
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         // TODO add your handling code here:
-        amount = amount + Integer.parseInt(boxAmount.getText());
-        price = mainClass.getDptSales().returnSouvenir(boxCode.getText()).getPrice();
-        income = income + (price * amount);
+        if (boxAmount.getText().equals("") || boxCode.getText().equals("")) {
+            showMessageDialog(null, "debe llenar los campos");
+        } else {
+            int LocalAmount = Integer.parseInt(boxAmount.getText());
+            amount = amount + LocalAmount;
+            price = mainClass.getDptSales().returnSouvenir(boxCode.getText()).getPrice();
+            income = income + (price * LocalAmount);
+
+            boxAmounts.append("code: " + boxCode.getText() + "  cant: "  + boxAmount.getText() + "\n");
+        }
         
-        boxAmounts.append("code: " + boxCode.getText() + "  cant: "  + boxAmount.getText() + "\n");
         setNull();
     }//GEN-LAST:event_buttonAddActionPerformed
 
