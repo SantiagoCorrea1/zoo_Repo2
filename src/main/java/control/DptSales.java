@@ -238,21 +238,14 @@ public class DptSales {
         showMessageDialog(null, "se han vendido correctamente las boletas");
     }
 
-    public void sellSouvenir(int amountLion, int amountTiger){
-        if (amountLion <= returnSouvenir("001").getAmountInStock() && amountTiger <= returnSouvenir("002").getAmountInStock()) {
+    public void sellSouvenir(double income, int amount){
             int currentSold = accounting.getSouvenirs_sold();
-            double income = accounting.getIncome();
-            currentSold = currentSold + amountTiger + amountLion;
-            double valueTiget = amountTiger * returnTicket("002").getPrice();
-            double valueLion = amountLion * returnTicket("001").getPrice();
-            income = income + valueLion + valueTiget;
+            double currentIncome = accounting.getIncome();
+            currentSold = currentSold + amount;
+            currentIncome = currentIncome + income;
             accounting.setSouvenirs_sold(currentSold);
-            accounting.setIncome(income);
+            accounting.setIncome(currentIncome);
             showMessageDialog(null, "se han vendido correctamente las souvenir");
-        }else {
-            showMessageDialog(null, "no hay suficientes en stock");
-        }
-        
     }
     /**
      * @return the arraysControl
