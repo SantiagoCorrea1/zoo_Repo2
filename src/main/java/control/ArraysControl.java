@@ -15,7 +15,6 @@ import utility.Souvenir;
 import utility.Pass;
 import utility.Ticket;
 import utility.Person;
-import utility.User;
 
 
 /**
@@ -33,7 +32,6 @@ public class ArraysControl {
     private ArrayList<Pass> passes = new ArrayList<>();
     private ArrayList<Ticket> tickets = new ArrayList<>();
     private ArrayList<Person> persons = new ArrayList<>();
-    private ArrayList<User> users = new ArrayList<>();
            
     /**
      * @return the animals
@@ -98,82 +96,5 @@ public class ArraysControl {
         return persons;
     }
 
-    /**
-     * @return the users
-     */
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-
-    /**
-     * @param animals the animals to set
-     */
-    public void setAnimals(ArrayList<Animal> animals) {
-        this.animals = animals;
-    }
-
-    /**
-     * @param domesticAnimals the domesticAnimals to set
-     */
-    public void setDomesticAnimals(ArrayList<DomesticAnimal> domesticAnimals) {
-        this.domesticAnimals = domesticAnimals;
-    }
-
-    /**
-     * @param minorAnimals the minorAnimals to set
-     */
-    public void setMinorAnimals(ArrayList<MinorAnimal> minorAnimals) {
-        this.minorAnimals = minorAnimals;
-    }
-
-    /**
-     * @param savageAnimals the savageAnimals to set
-     */
-    public void setSavageAnimals(ArrayList<SavageAnimal> savageAnimals) {
-        this.savageAnimals = savageAnimals;
-    }
-
-    /**
-     * @param plans the plans to set
-     */
-    public void setPlans(ArrayList<Plan> plans) {
-        this.plans = plans;
-    }
-
-    /**
-     * @param souvenirs the souvenirs to set
-     */
-    public void setSouvenirs(ArrayList<Souvenir> souvenirs) {
-        this.souvenirs = souvenirs;
-    }
-
-    /**
-     * @param passes the passes to set
-     */
-    public void setPasses(ArrayList<Pass> passes) {
-        this.passes = passes;
-    }
-
-    /**
-     * @param tickets the tickets to set
-     */
-    public void setTickets(ArrayList<Ticket> tickets) {
-        this.tickets = tickets;
-    }
-
-    /**
-     * @param persons the persons to set
-     */
-    public void setPersons(ArrayList<Person> persons) {
-        this.persons = persons;
-    }
-
-    /**
-     * @param users the users to set
-     */
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
-    }
-    
     
 }
