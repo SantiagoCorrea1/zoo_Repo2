@@ -10,6 +10,7 @@ import utility.Ticket;
 import utility.Accounting;
 import utility.Souvenir;
 import utility.Pass;
+import utility.Person;
 /**
  *
  * @author SANTIAGO
@@ -124,6 +125,29 @@ public class DptSales {
         return -1;
     }
     
+    public boolean personExits (String code){
+        if (arraysControl.getPersons().isEmpty() == false) {
+            for (int i = 0; i < getArraysControl().getPersons().size(); i++) {
+                if (getArraysControl().getPersons().get(i).getId().equals(code)) {
+                    return true;
+                }
+            }
+        }    
+        return false;
+    }
+    
+    //si existe el tiquete menor lo retorna
+    public Person returnPerson (String id) {
+        if (arraysControl.getPersons().isEmpty() == false) {
+            for (int i = 0; i < getArraysControl().getTickets().size(); i++) {
+                if (getArraysControl().getPersons().get(i).getId().equals(id)) {
+                    return getArraysControl().getPersons().get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
     public void newPlan() {
         
     }
@@ -140,9 +164,7 @@ public class DptSales {
     
     }
     
-    public void sellPass() {
-    
-    }
+   
     
     public void newTicket(Ticket t) {
         getArraysControl().getTickets().add(t);
@@ -243,6 +265,16 @@ public class DptSales {
             accounting.setSouvenirs_sold(currentSold);
             accounting.setIncome(currentIncome);
             showMessageDialog(null, "se han vendido correctamente las souvenir");
+    }
+    
+     public void sellPass(double income, int amount) {
+        int currentSold = accounting.getPasses_sold();
+        double currentIncome = accounting.getIncome();
+        currentSold = currentSold + amount;
+        currentIncome = currentIncome + income;
+        accounting.setPasses_sold(currentSold);
+        accounting.setIncome(currentIncome);
+        showMessageDialog(null, "se han vendido correctamente las abonos");
     }
     /**
      * @return the arraysControl
