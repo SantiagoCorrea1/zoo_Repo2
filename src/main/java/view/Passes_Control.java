@@ -5,18 +5,24 @@
  */
 
 package view;
+import control.MainClass;
 
 /**
  *
  * @author SANTIAGO
  */
 public class Passes_Control extends javax.swing.JFrame {
-    
+    MainClass mainClass;
     
     /** Creates new form Passes_Control */
-    public Passes_Control() {
+    public Passes_Control(MainClass mainClass) {
         initComponents();
+        this.mainClass  = mainClass;
         setLocationRelativeTo(this);
+    }
+
+    private Passes_Control() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /** This method is called from within the constructor to
@@ -98,21 +104,21 @@ public class Passes_Control extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Main_Menu main_Menu = new Main_Menu();
+        Main_Menu main_Menu = new Main_Menu(mainClass);
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonViewPassesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPassesActionPerformed
         // TODO add your handling code here:
-        View_Passes view_Passes = new View_Passes();
+        View_Passes view_Passes = new View_Passes(mainClass);
         view_Passes.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonViewPassesActionPerformed
 
     private void buttonEditPassesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditPassesActionPerformed
         // TODO add your handling code here:+
-        Edit_Passes edit_Passes = new Edit_Passes();
+        Edit_Passes edit_Passes = new Edit_Passes(mainClass);
         edit_Passes.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditPassesActionPerformed

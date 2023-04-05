@@ -250,12 +250,12 @@ public class Edit_Tickets extends javax.swing.JFrame {
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         // TODO add your handling code here:
-        Ticket newTicket = new Ticket(Double.parseDouble(boxNewPrice.getText()), boxNewCode.getText(), Integer.parseInt(boxNewAge.getText()));
-        System.out.println("hola");
+        Ticket newTicket = new Ticket(Double.parseDouble(boxNewPrice.getText()), boxNewCode.getText(), Integer.parseInt(boxNewAge.getText()));;
         if (mainClass.getDptSales().ticketExits(boxNewCode.getText())) {
             showMessageDialog(null, "el tiquete ya existe");
         } else {
             mainClass.getDptSales().getArraysControl().getTickets().add(newTicket);
+            showMessageDialog(null, "el tiquete fue agregado correctamente");
         }
         setNull();
         

@@ -9,6 +9,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
 import utility.Ticket;
 import utility.Accounting;
 import utility.Souvenir;
+import utility.Pass;
 /**
  *
  * @author SANTIAGO
@@ -47,6 +48,42 @@ public class DptSales {
             for (int i = 0; i < getArraysControl().getTickets().size(); i++) {
                 if (ticketExits(code) && getArraysControl().getTickets().get(i).getCode().equals(code)) {
                     return getArraysControl().getTickets().indexOf(returnTicket(code)) ;
+                }
+            }
+        }
+        return -1;
+    }
+    
+    //verifica si existe el ticket
+    public boolean passExits (String code){
+        if (arraysControl.getPasses().isEmpty() == false) {
+            for (int i = 0; i < getArraysControl().getPasses().size(); i++) {
+                if (getArraysControl().getPasses().get(i).getCode().equals(code)) {
+                    return true;
+                }
+            }
+        }    
+        return false;
+    }
+    
+    //si existe el tiquete menor lo retorna
+    public Pass returnPass (String code) {
+        if (arraysControl.getPasses().isEmpty() == false) {
+            for (int i = 0; i < getArraysControl().getPasses().size(); i++) {
+                if (getArraysControl().getPasses().get(i).getCode().equals(code)) {
+                    return getArraysControl().getPasses().get(i);
+                }
+            }
+        }
+        return null;
+    }
+    
+    //retorna la posicion del tikect
+    public int getPositionPass (String code) {
+        if (arraysControl.getPasses().isEmpty() == false) {
+            for (int i = 0; i < getArraysControl().getPasses().size(); i++) {
+                if (passExits(code) && getArraysControl().getPasses().get(i).getCode().equals(code)) {
+                    return getArraysControl().getPasses().indexOf(returnPass(code)) ;
                 }
             }
         }
@@ -103,28 +140,12 @@ public class DptSales {
     
     }
     
-    public void newPass() {
-    
-    }
-    
-    public void editPass() {
-    
-    }
-    
-    public void cancelPass() {
-    
-    }
-    
     public void sellPass() {
     
     }
     
     public void newTicket(Ticket t) {
-        if (ticketExits(t.getCode())) {
-            showMessageDialog(null, "el tiquete con ese código ya existe");
-        } else {
-            getArraysControl().getTickets().add(t);
-            }
+        getArraysControl().getTickets().add(t);
     }
     
     public void editTicket (String code, Ticket t) {
@@ -151,11 +172,8 @@ public class DptSales {
     }
     
      public void newSouvenir(Souvenir s) {
-         if (souvenirExits(s.getCode())) {
-             showMessageDialog(null, "el souvenir con ese código ya existe");
-         } else {
-            getArraysControl().getSouvenirs().add(s);
-            }
+        getArraysControl().getSouvenirs().add(s);
+            
     }
     
     public void editSouvenir (String code, Souvenir s) {
@@ -180,34 +198,55 @@ public class DptSales {
         }
     }
     
+    public void newPass(Pass p) {
+        getArraysControl().getPasses().add(p);
+            
+    }
+    
+    public void editPass (String code, Pass p) {
+        if (passExits(code)) {
+            Pass b = returnPass(code);
+            b.setCant_times(p.getCant_times());
+            b.setPrice(p.getPrice());
+            showMessageDialog(null, "el abono fue editado correctamente");
+        } else{
+            showMessageDialog(null, "no existe al abono con ese código");
+                }
+    }
+    
+    public void cancelPass(String code){
+        if (passExits(code)) {
+            if (getPositionPass(code) != -1) {
+                getArraysControl().getPasses().remove(getPositionPass(code));
+                showMessageDialog(null, "el abono fue eliminado de la base de datos");
+            } 
+        }else {
+            showMessageDialog(null, "no se encontró el abono en la base de datos");
+        }
+    }
+    
     public void sellTicket(int amountAdult, int amountKid){ 
- 
+        
         double income = accounting.getIncome();
-        int currentAdult = accounting.getTicketsAdult_sold();
-        int currentKid = accounting.getTicketsKid_sold();
+        int currentSold = accounting.getTickets_sold();
         double valueAdult = amountAdult * returnTicket("0002").getPrice();
         double valueKid = amountAdult * returnTicket("0001").getPrice();
         income = income + valueAdult + valueKid;
-        currentAdult = currentAdult + amountAdult;
-        currentKid = currentKid + amountKid;
-        accounting.setTicketsAdult_sold(currentAdult);
-        accounting.setTicketsKid_sold(currentKid);
+        currentSold = currentSold + amountAdult + amountKid;
+        accounting.setTickets_sold(currentSold);
         accounting.setIncome(income);
         showMessageDialog(null, "se han vendido correctamente las boletas");
     }
 
     public void sellSouvenir(int amountLion, int amountTiger){
         if (amountLion <= returnSouvenir("001").getAmountInStock() && amountTiger <= returnSouvenir("002").getAmountInStock()) {
-            int currentAmountLion = accounting.getSouvenirsLion_sold();
-            int currentAmounTiger = accounting.getSouvenirsTiger_sold();
+            int currentSold = accounting.getSouvenirs_sold();
             double income = accounting.getIncome();
-            currentAmounTiger = currentAmounTiger + amountTiger;
-            currentAmountLion = currentAmountLion + amountLion;
+            currentSold = currentSold + amountTiger + amountLion;
             double valueTiget = amountTiger * returnTicket("002").getPrice();
             double valueLion = amountLion * returnTicket("001").getPrice();
             income = income + valueLion + valueTiget;
-            accounting.setSouvenirsLion_sold(currentAmountLion);
-            accounting.setSouvenirsTiger_sold(currentAmounTiger);
+            accounting.setSouvenirs_sold(currentSold);
             accounting.setIncome(income);
             showMessageDialog(null, "se han vendido correctamente las souvenir");
         }else {

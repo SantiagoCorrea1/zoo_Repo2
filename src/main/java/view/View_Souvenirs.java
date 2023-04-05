@@ -13,8 +13,9 @@ import control.MainClass;
  */
 public class View_Souvenirs extends javax.swing.JFrame {
     MainClass mainClass;
-    int amountLion;
-    int amountTiger;
+    int amount;
+    double price;
+    double income;
     /**
      * Creates new form View_Souvenirs
      */
@@ -183,17 +184,11 @@ public class View_Souvenirs extends javax.swing.JFrame {
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         // TODO add your handling code here:
-        switch (boxCode.getText()) {
-            case "001":
-                amountLion = amountLion + Integer.parseInt(boxAmount.getText());
-                break;
-            case "002":
-                amountTiger = amountTiger + Integer.parseInt(boxAmount.getText());
-                break;
-        }
-        boxAmounts.setText("code: 001, cant: " + amountLion +
-                "                                         "
-                        + "code: 002, cant: " + amountTiger);
+        amount = Integer.parseInt(boxAmount.getText());
+        price = mainClass.getDptSales().returnSouvenir(boxCode.getText()).getPrice();
+        income = income + (price * amount);
+        
+        boxAmounts.setText("code:" + "cant:"  + boxAmount.getText() + "\n");
         setNull();
     }//GEN-LAST:event_buttonAddActionPerformed
 

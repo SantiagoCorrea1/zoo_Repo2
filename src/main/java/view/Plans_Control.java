@@ -4,19 +4,24 @@
  * and open the template in the editor.
  */
 package view;
-
+import control.MainClass;
 /**
  *
  * @author SANTIAGO
  */
 public class Plans_Control extends javax.swing.JFrame {
-    
+    MainClass mainClass;
     /**
      * Creates new form Passes_Control
      */
-    public Plans_Control() {
+    public Plans_Control(MainClass mainClass) {
         initComponents();
+        this.mainClass = mainClass;
         setLocationRelativeTo(this);
+    }
+
+    private Plans_Control() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -98,21 +103,21 @@ public class Plans_Control extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-        Main_Menu main_Menu = new Main_Menu();
+        Main_Menu main_Menu = new Main_Menu(mainClass);
         main_Menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonViewPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPlansActionPerformed
         // TODO add your handling code here:
-        View_Plans view_Plans = new View_Plans();
+        View_Plans view_Plans = new View_Plans(mainClass);
         view_Plans.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonViewPlansActionPerformed
 
     private void buttonEditPlansActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditPlansActionPerformed
         // TODO add your handling code here:
-        Edit_Plans edit_Plans =  new Edit_Plans();
+        Edit_Plans edit_Plans =  new Edit_Plans(mainClass);
         edit_Plans.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonEditPlansActionPerformed

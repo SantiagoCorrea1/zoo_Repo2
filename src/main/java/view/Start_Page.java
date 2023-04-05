@@ -8,6 +8,7 @@ import utility.SavageAnimal;
 import utility.Ticket;
 import control.MainClass;
 import utility.Souvenir;
+import utility.Pass;
 
 /**
  *
@@ -102,6 +103,8 @@ public class Start_Page extends javax.swing.JFrame {
             Ticket ticket_adults = new Ticket(10000, "002", 999);
             Souvenir souvenir1 = new Souvenir("001", "oso de peluche de leon", 35000, 15);
             Souvenir souvenir2 = new Souvenir("002", "oso de peluche de tigre", 35000, 10);
+            Pass pass1 = new Pass(100000, "001", 13);
+            Pass pass2 = new Pass(80000, "002", 10);
             mainClass.getDptLogistic().addDomesticAnimals(domesticAnimal);
             mainClass.getDptLogistic().addSavageAnimals(savageAnimal);
             mainClass.getDptLogistic().addMinorAnimals(minorAnimal);
@@ -109,6 +112,8 @@ public class Start_Page extends javax.swing.JFrame {
             mainClass.getDptSales().newTicket(ticket_adults);
             mainClass.getDptSales().newSouvenir(souvenir1);
             mainClass.getDptSales().newSouvenir(souvenir2);
+            mainClass.getDptSales().newPass(pass1);
+            mainClass.getDptSales().newPass(pass2);
             Main_Menu main_Menu = new Main_Menu(mainClass);
             main_Menu.setVisible(true);
             dispose();

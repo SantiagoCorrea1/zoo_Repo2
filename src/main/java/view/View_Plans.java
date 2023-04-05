@@ -4,19 +4,24 @@
  * and open the template in the editor.
  */
 package view;
-
+import control.MainClass;
 /**
  *
  * @author SANTIAGO
  */
 public class View_Plans extends javax.swing.JFrame {
-
+    MainClass mainClass;
     /**
      * Creates new form View_Passes
      */
-    public View_Plans() {
+    public View_Plans(MainClass mainClass) {
         initComponents();
+        this.mainClass = mainClass;
         setLocationRelativeTo(this);
+    }
+
+    private View_Plans() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -124,7 +129,7 @@ public class View_Plans extends javax.swing.JFrame {
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         // TODO add your handling code here:
-         Plans_Control plans_Control = new Plans_Control();
+         Plans_Control plans_Control = new Plans_Control(mainClass);
         plans_Control.setVisible(true);
         dispose();
     }//GEN-LAST:event_buttonBackActionPerformed
